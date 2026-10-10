@@ -1,4 +1,4 @@
-const CACHE_NAME = "ai-prompt-studio-v2";
+const CACHE_NAME = "ai-prompt-studio-v3";
 const APP_SHELL = [
   "./",
   "./index.html",

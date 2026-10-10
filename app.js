@@ -226,7 +226,7 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     $("copyPromptFromHome").disabled = !hasTask;
     $("showPromptButton").disabled = !hasTask;
     if (hasTask && $("copyPromptFromHomeLabel").textContent.startsWith("Gekopieerd")) {
-      $("copyPromptFromHomeLabel").textContent = "Copy";
+      $("copyPromptFromHomeLabel").textContent = "Kopiëren";
     }
   }
 
@@ -260,7 +260,7 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
       $("copyPromptFromHomeLabel").textContent = "Gekopieerd ✓";
       setTimeout(() => {
         if ($("copyPromptFromHomeLabel")) {
-          $("copyPromptFromHomeLabel").textContent = "Copy";
+          $("copyPromptFromHomeLabel").textContent = "Kopiëren";
         }
       }, 1800);
     }
