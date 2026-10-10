@@ -221,8 +221,49 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     showToast("Prompt verwijderd");
   }
 
-  function updateGenerateButton() {
-    $("generateButton").disabled = !normalize($("task").value);
+  function updateHomeButtons() {
+    const hasTask = Boolean(normalize($("task").value));
+    $("copyPromptFromHome").disabled = !hasTask;
+    $("showPromptButton").disabled = !hasTask;
+    if (hasTask && $("copyPromptFromHomeLabel").textContent.startsWith("Gekopieerd")) {
+      $("copyPromptFromHomeLabel").textContent = "Copy";
+    }
+  }
+
+  function prepareCurrentPrompt() {
+    const prompt = generatePrompt();
+    if (!prompt) {
+      $("task").focus();
+      showToast("Vul eerst je opdracht in");
+      return "";
+    }
+
+    state.currentPrompt = prompt;
+    state.currentTitle = makeTitle($("task").value);
+    $("promptOutput").textContent = prompt;
+    $("copyLabel").textContent = "Kopiëren";
+    $("resultStatus").textContent = "";
+    return prompt;
+  }
+
+  function showCurrentPrompt() {
+    if (!prepareCurrentPrompt()) return;
+    showScreen("resultScreen");
+  }
+
+  async function copyCurrentPromptFromHome() {
+    const prompt = prepareCurrentPrompt();
+    if (!prompt) return;
+
+    const copied = await copyText(prompt);
+    if (copied) {
+      $("copyPromptFromHomeLabel").textContent = "Gekopieerd ✓";
+      setTimeout(() => {
+        if ($("copyPromptFromHomeLabel")) {
+          $("copyPromptFromHomeLabel").textContent = "Copy";
+        }
+      }, 1800);
+    }
   }
 
   function goHome(clearResult = false) {
@@ -236,24 +277,14 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     showScreen("homeScreen");
   }
 
-  $("task").addEventListener("input", updateGenerateButton);
+  $("task").addEventListener("input", updateHomeButtons);
   $("promptForm").addEventListener("submit", event => {
     event.preventDefault();
-
-    const prompt = generatePrompt();
-    if (!prompt) {
-      $("task").focus();
-      showToast("Vul eerst je opdracht in");
-      return;
-    }
-
-    state.currentPrompt = prompt;
-    state.currentTitle = makeTitle($("task").value);
-    $("promptOutput").textContent = prompt;
-    $("copyLabel").textContent = "Kopiëren";
-    $("resultStatus").textContent = "";
-    showScreen("resultScreen");
+    showCurrentPrompt();
   });
+
+  $("copyPromptFromHome").addEventListener("click", copyCurrentPromptFromHome);
+  $("showPromptButton").addEventListener("click", showCurrentPrompt);
 
   $("backButton").addEventListener("click", () => goHome());
   $("savedButton").addEventListener("click", () => {
@@ -309,6 +340,6 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     });
   }
 
-  updateGenerateButton();
+  updateHomeButtons();
   renderSavedList();
 })();

@@ -7,6 +7,7 @@ Een mobiele, algemene versie van AI Prompt Studio.
 - Alleen drie invoervelden: Opdracht, Context, Gewenst resultaat
 - Geavanceerde, ingeklapte handmatige rol
 - Promptgeneratie volledig lokaal in de browser
+- Startpagina met twee acties: Copy (maakt en kopieert direct) en Tonen (opent het resultaatscherm)
 - Resultaatscherm met Kopiëren en Delen
 - Opgeslagen prompts via localStorage
 - Offline cache via Service Worker
