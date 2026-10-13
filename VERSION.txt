@@ -1,0 +1,3 @@
+AI Prompt Studio — iPhone PWA
+Versie: 1.0.0
+Releasedatum: 2026-10-13

@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <title>AI Prompt Studio</title>
+  <meta name="application-version" content="1.0.0">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -78,9 +79,9 @@
 
           <div class="home-actions">
             <button id="copyPromptFromHome" class="primary-button" type="button" disabled>
-              <span id="copyPromptFromHomeLabel">Copy</span>
+              <span id="copyPromptFromHomeLabel">Kopiëren</span>
             </button>
-            <button id="showPromptButton" class="secondary-button" type="button" disabled>
+            <button id="showPromptButton" class="secondary-button accent-secondary" type="button" disabled>
               Tonen <span aria-hidden="true">→</span>
             </button>
           </div>
@@ -109,12 +110,12 @@
           <button id="copyButton" class="primary-button" type="button">
             <span id="copyLabel">Kopiëren</span>
           </button>
-          <button id="shareButton" class="secondary-button" type="button">
+          <button id="shareButton" class="secondary-button accent-secondary" type="button">
             Delen
           </button>
         </div>
 
-        <button id="saveButton" class="secondary-button full" type="button">
+        <button id="saveButton" class="secondary-button accent-secondary full" type="button">
           Bewaar prompt
         </button>
 
@@ -153,7 +154,7 @@
 
         <div class="action-grid">
           <button id="savedCopyButton" class="primary-button" type="button">Kopiëren</button>
-          <button id="savedShareButton" class="secondary-button" type="button">Delen</button>
+          <button id="savedShareButton" class="secondary-button accent-secondary" type="button">Delen</button>
         </div>
 
         <button id="deleteSavedButton" class="danger-button full" type="button">
@@ -167,6 +168,7 @@
       <span class="footer-brand">
         <img src="icons/EBr-logo.png" alt="">
         <strong>EBr</strong>
+        <span class="version-label">· iPhone PWA v1.0.0</span>
       </span>
     </footer>
   </div>

@@ -1,6 +1,7 @@
 (() => {
   "use strict";
 
+  const APP_VERSION = "1.0.0";
   const $ = (id) => document.getElementById(id);
 
   const ROLE_INSTRUCTION = `Lees de volledige prompt voordat je begint.
@@ -226,7 +227,7 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     $("copyPromptFromHome").disabled = !hasTask;
     $("showPromptButton").disabled = !hasTask;
     if (hasTask && $("copyPromptFromHomeLabel").textContent.startsWith("Gekopieerd")) {
-      $("copyPromptFromHomeLabel").textContent = "Copy";
+      $("copyPromptFromHomeLabel").textContent = "Kopiëren";
     }
   }
 
@@ -260,7 +261,7 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
       $("copyPromptFromHomeLabel").textContent = "Gekopieerd ✓";
       setTimeout(() => {
         if ($("copyPromptFromHomeLabel")) {
-          $("copyPromptFromHomeLabel").textContent = "Copy";
+          $("copyPromptFromHomeLabel").textContent = "Kopiëren";
         }
       }, 1800);
     }

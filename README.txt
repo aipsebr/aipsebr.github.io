@@ -1,3 +1,5 @@
+Versie 1.0.0 — release 2026-10-13
+
 # AI Prompt Studio — iPhone PWA
 
 Een mobiele, algemene versie van AI Prompt Studio.
