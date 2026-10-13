@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const APP_VERSION = "1.0.0";
+  const APP_VERSION = "1.1.0";
   const $ = (id) => document.getElementById(id);
 
   const ROLE_INSTRUCTION = `Lees de volledige prompt voordat je begint.
@@ -222,6 +222,35 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     showToast("Prompt verwijderd");
   }
 
+  function clearForm() {
+    const fieldIds = ["task", "context", "outcome", "manualRole"];
+    const hasContent = fieldIds.some(id => normalize($(id).value));
+
+    if (!hasContent) {
+      showToast("De invoervelden zijn al leeg");
+      return;
+    }
+
+    const confirmed = window.confirm(
+      "Wil je alle invoervelden leegmaken? Opgeslagen prompts blijven bewaard."
+    );
+    if (!confirmed) return;
+
+    fieldIds.forEach(id => { $(id).value = ""; });
+
+    const advancedPanel = document.querySelector(".advanced-card");
+    if (advancedPanel) advancedPanel.open = false;
+
+    // Wis alleen de tijdelijke, huidige prompt; bewaarde prompts blijven staan.
+    state.currentPrompt = "";
+    state.currentTitle = "";
+    $("promptOutput").textContent = "";
+    $("resultStatus").textContent = "";
+    $("copyLabel").textContent = "Kopiëren";
+    updateHomeButtons();
+    showToast("Invoervelden leeggemaakt");
+  }
+
   function updateHomeButtons() {
     const hasTask = Boolean(normalize($("task").value));
     $("copyPromptFromHome").disabled = !hasTask;
@@ -278,6 +307,7 @@ Kies de meest specifieke passende deskundige rol, maar gebruik geen specialistis
     showScreen("homeScreen");
   }
 
+  $("resetFormButton").addEventListener("click", clearForm);
   $("task").addEventListener("input", updateHomeButtons);
   $("promptForm").addEventListener("submit", event => {
     event.preventDefault();

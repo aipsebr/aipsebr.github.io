@@ -1,4 +1,18 @@
+## v1.1.1 — 2026-10-13
+- Knoptekst gewijzigd van ‘Leegmaken’ naar ‘Reset’ voor consistentie met de Windows/webversie.
+- De bestaande bevestiging en resetfunctionaliteit zijn ongewijzigd gebleven.
+
 # AI Prompt Studio — iPhone PWA
+
+## v1.1.0 — 2026-10-13
+Nieuwe functie: formulier leegmaken.
+
+- Knop **Leegmaken** toegevoegd aan het startscherm.
+- Er wordt om bevestiging gevraagd voordat invoervelden worden gewist.
+- Opdracht, context, gewenst resultaat en handmatige rol worden leeggemaakt.
+- De geavanceerde sectie wordt weer ingeklapt.
+- Opgeslagen prompts blijven behouden.
+- Versienummer en Service Worker-cache bijgewerkt naar 1.1.0.
 
 ## v1.0.0 — 2026-10-13
 Eerste officieel genummerde release.

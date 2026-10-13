@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <title>AI Prompt Studio</title>
-  <meta name="application-version" content="1.0.0">
+  <meta name="application-version" content="1.1.0">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -41,6 +41,12 @@
         </div>
 
         <form id="promptForm" novalidate>
+          <div class="form-top-actions">
+            <button id="resetFormButton" class="reset-button" type="button">
+              <span aria-hidden="true">↺</span> Reset
+            </button>
+          </div>
+
           <label class="field-card required-field">
             <span class="field-label">Opdracht <em>verplicht</em></span>
             <textarea id="task" rows="7" maxlength="12000"
@@ -168,7 +174,7 @@
       <span class="footer-brand">
         <img src="icons/EBr-logo.png" alt="">
         <strong>EBr</strong>
-        <span class="version-label">· iPhone PWA v1.0.0</span>
+        <span class="version-label">· iPhone PWA v1.1.1</span>
       </span>
     </footer>
   </div>

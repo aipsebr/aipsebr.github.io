@@ -159,6 +159,42 @@ button {
   box-shadow: var(--shadow);
 }
 
+
+.form-top-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 0 0;
+}
+
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+
+.reset-button:hover,
+.reset-button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  outline: none;
+}
+
+.reset-button:active {
+  transform: scale(.99);
+}
+
 .field-card {
   display: block;
   padding: 15px;
